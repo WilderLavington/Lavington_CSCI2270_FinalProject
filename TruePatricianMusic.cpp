@@ -13,7 +13,7 @@ using namespace std;
 bool goodbuilt = false;
 bool badbuilt = false;
 struct InfoStorage{
-    int rating;
+    double rating;
     string album;
     string artist;
     string genre;
@@ -40,7 +40,7 @@ void Genre::initializeLibrary(std::string filename){
         int entries = -1;
         string line, parse, artist, album, genre, ratingStr;
         int counting;
-        int rating;
+        double rating;
         while(getline(infile,line)){        // while there are lines to get
             entries++;
             counting=-1;
@@ -55,7 +55,8 @@ void Genre::initializeLibrary(std::string filename){
                 }
                 else if(counting==2){
                     ratingStr=parse;
-                    rating=atoi(ratingStr.c_str());
+                    rating=atof(ratingStr.c_str());
+
                 }
                 else{
                     genre=parse;
@@ -84,7 +85,7 @@ heads for each genre with the new one. If the genre already exists, it will find
 the linked list until it finds the appropriate placement based on its rating. The albums are sorted hightest rating to lowest
 There is no post condition, but the pre condition is the artist, album, rating,and genre, in that order. The artist, album,
 and genre must be strings, where the rating must be an int. */
-void Genre::addAlbumNode(std::string artist, std::string album, int rating, std::string genre){
+void Genre::addAlbumNode(std::string artist, std::string album, double rating, std::string genre){
 	Album *newOne = new Album(artist,album,rating,genre);
 	newOne->score=0;
 	int root=0;
@@ -153,7 +154,6 @@ int Genre::getRoot(std::string genre){
             return i;
     }
 }
-
 /* This prints the library. It is the recursive version of the function that goes through the linked list and prints
 each album that it contains. its precondition is the node in the linked list and its return is none, but is does
 cout the information of the album*/
@@ -171,7 +171,8 @@ void Genre::printLibrary(Album *node){
     while(node!=nil){
         Order[counter].album = node->album;
         Order[counter].artist = node->band;
-        Order[counter].rating = node->rating;
+        Order[counter].rating = 10*node->rating;
+        //cout<<node->rating<<endl;
         Order[counter].genre = node->genre;
         node=node->next;
         counter++;
