@@ -161,56 +161,12 @@ void Genre::printLibrary(Album *node){
     Album * head = node;
     int counter = 0;
     while(node!=nil){
-        //cout<<node->genre<<": "<<node->album<<" by "<<node->band<<" rated "<<node->rating<<endl;
+        cout<<node->genre<<": "<<node->album<<" by "<<node->band<<" rated "<<node->rating<<endl;
         node=node->next;
         counter++;
     }
     node = head;
-    InfoStorage Order[counter];
-    counter = 0;
-    while(node!=nil){
-        Order[counter].album = node->album;
-        Order[counter].artist = node->band;
-        Order[counter].rating = 10*node->rating;
-        //cout<<node->rating<<endl;
-        Order[counter].genre = node->genre;
-        node=node->next;
-        counter++;
-    }
-    //print in order
-    //bubble sort
-    int array[counter+1];
-    for(int i = 0;i<counter;i++)
-    {
-        array[i] = Order[i].rating;
-    }
-    int temp;
-    for(int i2=0; i2<=counter; i2++)
-   {
-     for(int j=0; j<counter; j++)
-     {
-        //Swapping element in if statement
-           if(array[j]<array[j+1])
-       {
-        temp=array[j];
-        array[j]=array[j+1];
-        array[j+1]=temp;
-       }
-     }
-   }
-   for(int i = 0;i<counter;i++)
-   {
-       for(int j = 0;j<counter;j++)
-       {
-           if(array[i]==Order[j].rating)
-           {
-            cout<<Order[j].genre<<": "<<Order[j].artist<<" : "<<Order[j].album<<" : "<<Order[j].rating<<endl;
-           }
-       }
-   }
-
 }
-
 /* This is the caller to print the library. no preconditions and no post conditions, but what is does is go throguh the vector
 of genres and calls the print library recursive for each head of each genre in the vector */
 void Genre::printLibrary(){
