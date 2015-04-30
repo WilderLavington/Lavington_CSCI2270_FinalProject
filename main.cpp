@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "TruePatricianMusic.h"
+#include <stdlib.h>
 using namespace std;
 
 void mainMenu();
