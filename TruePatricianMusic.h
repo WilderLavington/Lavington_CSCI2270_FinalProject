@@ -3,9 +3,12 @@
 #ifndef TRUEPATRICIANMUSIC_H
 #define TRUEPATRICIANMUSIC_H
 
+//tried not to use too many built in libraries 
+//also avoided namespace std
 #include <vector>
 #include <string>
 
+// album is the main struct for storing info within a linked list
 struct Album{
     std::string band;
     std::string album;
@@ -26,7 +29,8 @@ struct Album{
         genre = _genre;
     }
 };
-
+//genre is the main class in our grogram that handles all all functions,
+//it is effectivly a graph with some radical additions 
 class Genre{
     public:
         ~Genre();
