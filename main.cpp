@@ -9,9 +9,12 @@ void mainMenu();
 int main()
 {
     srand((int)time(NULL));
+    //initialize instance of class
     Genre muLibrary;
+    //read in txt file
     muLibrary.initializeLibrary("mu.txt");
     string option = " ";
+    //while loop for user input
     while(option!="11"){
         option.erase();
         int invalid = 0;
@@ -23,6 +26,7 @@ int main()
             getline(cin,option);
             invalid++;
         }
+        //1. R8 my taste
         if(option=="1"){
             string album1, album2, album3;
             int ratingTotal = 0;
@@ -46,12 +50,14 @@ int main()
             }
 
         }
+        //2. Recommend me some tunes pls
         else if(option=="2"){
             cout<<"Cool beans. What album you want to get something similar to??"<<endl;
             string album;
             getline(cin,album);
             muLibrary.recommend(album);
         }
+        //3. Give me everything on a genre!
         else if(option=="3"){
             cout<<"Brilliant, we love getting you hooked on some sweet tunes!"<<endl;
             muLibrary.printGenres();
@@ -59,14 +65,17 @@ int main()
             getline(cin,genre);
             muLibrary.genreRecommend(genre);
         }
+        //4. I want to be patrician too! :c
         else if(option=="4"){
             cout<<"Hey, don't worry 'lil buddy / 'lil gal / 'lil friend! We got you covered! :D!"<<endl;
             muLibrary.patricianize();
         }
+        //5. Who are, without dispute, the greatest of all time?
         else if(option=="5"){
             cout<<"Welly well, we have a nifty algo for that!"<<endl;
             muLibrary.GOAT();
         }
+        //6. Add music to the library
         if(option=="6"){
             string artist, album, genre, rating;
             int ratingInt;
@@ -83,6 +92,7 @@ int main()
             muLibrary.addAlbumNode(artist,album,ratingInt,genre);
             cout<<"k"<<endl;
         }
+        //7. True patrician suggestion
         else if(option=="7"){
             cout<<"\nThis suggestion is only for those with incomes >= 60k/year\n";
             cout<<"Enter your gross adjusted income per year:\n";
@@ -97,15 +107,18 @@ int main()
                 cout<<"May we suggest "<<muLibrary.patricianSuggestion()<<"?"<<endl<<"And as always, thank you for choosing Patrician Music Suggestions for your recomendation needs."<<endl<<endl;
             }
         }
+        //8. Random suggestion plox
         else if(option=="8"){
             string out = muLibrary.randomSuggestion();
             cout<<"\nWe randomly suggest "<<out<<endl<<endl;
         }
+        //. Bad suggestion
         else if(option=="9"){
             string out = muLibrary.badSuggestion();
             cout<<"\nThis suggestion gauranteed to keep your mind un-blown!\nDon't worry about nasty head explosions m8.\n";
             cout<<"Our poor suggestion is "<<out<<endl<<endl;
         }
+        //quit
         else if(option=="10"){
             muLibrary.printLibrary();
         }
