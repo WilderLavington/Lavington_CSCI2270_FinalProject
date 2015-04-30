@@ -85,7 +85,7 @@ heads for each genre with the new one. If the genre already exists, it will find
 the linked list until it finds the appropriate placement based on its rating. The albums are sorted hightest rating to lowest
 There is no post condition, but the pre condition is the artist, album, rating,and genre, in that order. The artist, album,
 and genre must be strings, where the rating must be an int. */
-void Genre::addAlbumNode(std::string artist, std::string album, double rating, std::string genre){
+void Genre::addAlbumNode(std::string artist, std::string album, int rating, std::string genre){
 	Album *newOne = new Album(artist,album,rating,genre);
 	newOne->score=0;
 	int root=0;
