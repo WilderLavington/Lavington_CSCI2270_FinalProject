@@ -15,3 +15,5 @@ Group Members: The team members are Branton DeMoss, Wilder Lavington, Adam Tamma
 Contributers: If you decided you wish to improve upon our system, pleace leave your name so we can give you credit!
 
 Known bugs: As of now, we are unable to sort the system. The system is based upon a vector with each node of the vector being a pointer tot he head of the linked list. We attemped using the quick sort, but it did not change anything. If you can figure out how to sort the pointers without destroying their links, it would be much appreciated.
+  Resolved!
+  the only issue was that the program that wa sorting them was converting them to integers automatically, when we changed the function paremeters to take doubles instead of ints, it allowed for the program to properly evaluate each album rating, which inturn allowed our sort algorithm to function correctly and print out the correct order in the print function. 
